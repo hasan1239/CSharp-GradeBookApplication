@@ -19,7 +19,7 @@ namespace GradeBook.GradeBooks
         public BaseGradeBook(string name, bool isWeighted)
         {
             Name = name;
-            IsWeighted = IsWeighted;
+            IsWeighted = isWeighted;
             Students = new List<Student>();
         }
 
@@ -130,9 +130,9 @@ namespace GradeBook.GradeBooks
                     break;
             }
 
-            if (IsWeighted && (studentType == StudentType.DualEnrolled || studentType == StudentType.Honors))
+            if (IsWeighted && (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled))
             {
-                gpa += 1;
+                gpa++;
             }
  
             return gpa;
